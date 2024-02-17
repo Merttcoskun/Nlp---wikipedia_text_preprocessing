@@ -7,6 +7,28 @@
 # •	Remove punctuation marks.
 # •	Remove numeric expressions.
 
+import pandas as pd
+import matplotlib.pyplot as plt
+import re
+from wordcloud import WordCloud
+from nltk.corpus import stopwords
+from textblob import Word, TextBlob
+from warnings import filterwarnings
+
+
+filterwarnings('ignore')
+pd.set_option('display.max_columns', None)
+pd.set_option('display.float_format', lambda x: '%.2f' % x)
+pd.set_option('display.width', 200)
+
+# Datayı okumak
+df = pd.read_csv("/datasets\wiki-221126-161428\wiki_data.csv", index_col=0)
+df.head()
+df = df[:2000]
+
+df.head()
+df.shape
+
 
 def clean_text(text):
     # Normalizing Case Folding
